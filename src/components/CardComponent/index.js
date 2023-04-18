@@ -3,22 +3,23 @@ import React, {memo} from 'react';
 
 import * as S from './styles';
 
-export const RoundedButton = ({
-  onPress,
+export const Card = ({
   title,
   fontSize,
   border,
   bgColor,
   borderRadius,
   width,
+  height,
 }) => {
   return (
-    <S.RoundedTouchableOpacity
+    <S.Card
       border={border}
       backgroundColor={bgColor}
       borderRadius={borderRadius}
-      width={width}>
+      width={width}
+      height={height}>
       <S.ContentText size={fontSize}>{title}</S.ContentText>
-    </S.RoundedTouchableOpacity>
+    </S.Card>
   );
 };
