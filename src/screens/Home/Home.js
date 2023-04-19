@@ -1,31 +1,47 @@
 import React, {useState} from 'react';
 import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
+import {colors} from '../../styles';
+import {RoundedButton} from '../../components/ButtonComponent';
+import {Container} from '../../components/wrapperComponents/wrapperComponent';
 
 const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
-    <View style={styles.centeredView}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}>
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Filter</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle}>Close</Text>
-            </Pressable>
+    <View>
+      <View style={styles.centeredView}>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert('Modal has been closed.');
+            setModalVisible(!modalVisible);
+          }}>
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>content button filter</Text>
+              <RoundedButton
+                onPress={() => setModalVisible(!modalVisible)}
+                bgColor={colors.Sky.Light}
+                title="Close modal"
+                width="327px"
+                height="128px"
+                borderRadius="8px"
+              />
+            </View>
           </View>
-        </View>
-      </Modal>
-      <Pressable style={[styles.button]} onPress={() => setModalVisible(true)}>
-        <Text style={styles.textStyle}>Click</Text>
-      </Pressable>
+        </Modal>
+      </View>
+      <Container>
+        <RoundedButton
+          onPress={() => setModalVisible(!modalVisible)}
+          bgColor={colors.Sky.Light}
+          title="Open modal"
+          width="327px"
+          height="128px"
+          borderRadius="8px"
+        />
+      </Container>
     </View>
   );
 };
