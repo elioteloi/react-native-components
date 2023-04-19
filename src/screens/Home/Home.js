@@ -1,65 +1,42 @@
-import React, {useState} from 'react';
-import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
-import {colors} from '../../styles';
+import {Text, View, StyleSheet} from 'react-native';
+
 import {RoundedButton} from '../../components/ButtonComponent';
 import {Container} from '../../components/wrapperComponents/wrapperComponent';
+import {ContentText} from '../../components/TextComponent/styles';
+import {RoundedInput} from '../../components/InputComponent/style';
+import {colors} from '../../styles';
+import {CustomImage} from '../../components/ImagesComponent/image';
+import {Card} from '../../components/CardComponent/styles';
 
 const App = () => {
-  const [modalVisible, setModalVisible] = useState(false);
   return (
-    <View>
-      <View style={styles.centeredView}>
-        <Modal
-          animationType="slide"
-          transparent={true}
-          visible={modalVisible}
-          onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
-            setModalVisible(!modalVisible);
-          }}>
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>content button filter</Text>
-              <RoundedButton
-                onPress={() => setModalVisible(!modalVisible)}
-                bgColor={colors.Sky.Light}
-                title="Close modal"
-                width="327px"
-                height="128px"
-                borderRadius="8px"
-              />
-            </View>
-          </View>
-        </Modal>
-      </View>
-      <Container>
-        <RoundedButton
-          onPress={() => setModalVisible(!modalVisible)}
-          bgColor={colors.Sky.Light}
-          title="Open modal"
-          width="327px"
-          height="128px"
-          borderRadius="8px"
-        />
-      </Container>
-    </View>
+    <Container>
+      <ContentText>Aluguel de veículos rápido, fácil e digital</ContentText>
+      {/* <CustomImage source={require('../../../images/carro_leevo.png')} /> */}
+
+      <RoundedButton
+        bgColor={colors.Sky.Light}
+        title="Começar agora"
+        width="327px"
+        height="128px"
+        borderRadius="8px"
+      />
+    </Container>
   );
 };
 
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     alignItems: 'center',
     marginTop: 22,
   },
   modalView: {
+    margin: 20,
     backgroundColor: 'white',
-    borderTopRightRadius: 20,
-    borderTopLeftRadius: 20,
+    borderRadius: 20,
     padding: 35,
-    height: 500,
-    width: '100%',
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
@@ -74,11 +51,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     elevation: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   buttonOpen: {
-    backgroundColor: 'black',
+    backgroundColor: '#F194FF',
   },
   buttonClose: {
     backgroundColor: '#2196F3',

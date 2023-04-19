@@ -8,14 +8,14 @@ export const RoundedButton = ({
   title,
   fontSize,
   border,
-  bgColor,
+  backgroundColor,
   borderRadius,
   width,
 }) => {
   return (
     <S.RoundedTouchableOpacity
       border={border}
-      backgroundColor={bgColor}
+      backgroundColor={backgroundColor}
       borderRadius={borderRadius}
       width={width}
       onPress={onPress}>

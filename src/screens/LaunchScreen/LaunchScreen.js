@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
 import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
+import {colors} from '../../styles';
+import {RoundedButton} from '../../components/ButtonComponent';
+import {Container} from '../../components/wrapperComponents/wrapperComponent';
 
 const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -11,27 +14,34 @@ const App = () => {
           transparent={true}
           visible={modalVisible}
           onRequestClose={() => {
+            Alert.alert('Modal has been closed.');
             setModalVisible(!modalVisible);
           }}>
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
-              <Text style={styles.modalText}>Filter</Text>
-
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}>
-                <Text style={styles.textStyle}>Close</Text>
-              </Pressable>
+              <Text style={styles.modalText}>content button filter</Text>
+              <RoundedButton
+                onPress={() => setModalVisible(!modalVisible)}
+                bgColor={colors.Sky.Light}
+                title="Close modal"
+                width="327px"
+                height="128px"
+                borderRadius="8px"
+              />
             </View>
           </View>
         </Modal>
       </View>
-
-      <Pressable
-        style={[styles.button, styles.buttonClose]}
-        onPress={() => setModalVisible(true)}>
-        <Text style={styles.textStyle}>Click</Text>
-      </Pressable>
+      <Container>
+        <RoundedButton
+          onPress={() => setModalVisible(!modalVisible)}
+          bgColor={colors.Sky.Light}
+          title="Open modal"
+          width="327px"
+          height="128px"
+          borderRadius="8px"
+        />
+      </Container>
     </View>
   );
 };
@@ -39,7 +49,7 @@ const App = () => {
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: 'flex-start',
+    justifyContent: 'flex-end',
     alignItems: 'center',
     marginTop: 22,
   },

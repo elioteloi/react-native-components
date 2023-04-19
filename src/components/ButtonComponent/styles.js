@@ -8,11 +8,13 @@ export const RoundedTouchableOpacity = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   color: black;
-  background-color: ${props => props.bgColor || '#4EFF9F'};
+  border: 1px ${colors.Sky.Base}
+  background-color: ${props => props.backgroundColor || '#4EFF9F'};
   margin-top: 16px;
+  padding: 10px;
 `;
 
 export const ContentText = styled.Text`
   color: ${colors.Ink.Dark};
-  font-size: ${props => props.size || '16px'};
+  font-size: ${props => props.size || '14px'};
 `;
