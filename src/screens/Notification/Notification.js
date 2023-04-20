@@ -1,5 +1,13 @@
 import React, {useState} from 'react';
-import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
+import {
+  Alert,
+  Modal,
+  StyleSheet,
+  Text,
+  Pressable,
+  View,
+  Button,
+} from 'react-native';
 import {colors} from '../../styles';
 import {RoundedButton} from '../../components/ButtonComponent';
 import {Container} from '../../components/wrapperComponents/wrapperComponent';
@@ -46,53 +54,56 @@ const App = () => {
           }}>
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
-              <Text style={styles.modalText}>content button filter</Text>
               <Container>
-                <View>
-                  <RoundedButton
-                    onPress={() => setFilterCriteria('all')}
-                    backgroundColor={colors.Sky.Lightest}
-                    title="All"
-                    width="100%"
-                    height="128px"
-                    borderRadius="48px"
-                  />
-                  <RoundedButton
-                    onPress={() => setFilterCriteria('Hatch Econômico')}
-                    backgroundColor={colors.Sky.Lightest}
-                    title="Hatch Econômico"
-                    width="100%"
-                    height="128px"
-                    borderRadius="48px"
-                  />
+                <View style={styles.container}>
+                  <View style={styles.view1}>
+                    <RoundedButton
+                      onPress={() => setFilterCriteria('all')}
+                      backgroundColor={colors.Sky.Lightest}
+                      title="All"
+                      width="100%"
+                      height="128px"
+                      borderRadius="48px"
+                    />
+                    <RoundedButton
+                      onPress={() => setFilterCriteria('Hatch Econômico')}
+                      backgroundColor={colors.Sky.Lightest}
+                      title="Hatch Econômico"
+                      width="100%"
+                      height="128px"
+                      borderRadius="48px"
+                    />
 
-                  <RoundedButton
-                    onPress={() => setFilterCriteria('Hatch Intermediário')}
-                    backgroundColor={colors.Sky.Lightest}
-                    title="Hatch Intermediário"
-                    width="100%"
-                    height="128px"
-                    borderRadius="48px"
-                  />
+                    <RoundedButton
+                      onPress={() => setFilterCriteria('Hatch Intermediário')}
+                      backgroundColor={colors.Sky.Lightest}
+                      title="Hatch Intermediário"
+                      width="100%"
+                      height="128px"
+                      borderRadius="48px"
+                    />
+                  </View>
 
-                  <RoundedButton
-                    onPress={() => setFilterCriteria('Sedan')}
-                    backgroundColor={colors.Sky.Lightest}
-                    title="Sedan"
-                    width="100%"
-                    height="128px"
-                    borderRadius="48px"
-                  />
+                  <View style={styles.view2}>
+                    <RoundedButton
+                      onPress={() => setFilterCriteria('Sedan')}
+                      backgroundColor={colors.Sky.Lightest}
+                      title="Sedan"
+                      width="100%"
+                      height="128px"
+                      borderRadius="48px"
+                    />
 
-                  <RoundedButton
-                    onPress={() => setFilterCriteria('SUV Compacto')}
-                    backgroundColor={colors.Sky.Lightest}
-                    title="SUV"
-                    width="100%"
-                    height="128px"
-                    borderRadius="48px"
-                    margin="16"
-                  />
+                    <RoundedButton
+                      onPress={() => setFilterCriteria('SUV Compacto')}
+                      backgroundColor={colors.Sky.Lightest}
+                      title="SUV"
+                      width="100%"
+                      height="128px"
+                      borderRadius="48px"
+                      margin="16"
+                    />
+                  </View>
                 </View>
               </Container>
               <RoundedButton
@@ -156,6 +167,26 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
+  },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 16,
+  },
+  buttonRow: {
+    flexDirection: 'row',
+    marginBottom: 10,
+  },
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  view1: {
+    flex: 1,
+  },
+  view2: {
+    flex: 1,
   },
 });
 

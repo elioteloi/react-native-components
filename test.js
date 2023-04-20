@@ -1,59 +1,73 @@
-// import React, {useState, useEffect} from 'react';
-// import {View, Text} from 'react-native';
-// import {Picker} from '@react-native-picker/picker';
-// import data from './src/data.json';
+import React from 'react';
+import {View, StyleSheet} from 'react-native';
+import {colors} from './src/styles';
+import {RoundedButton} from './src/components/ButtonComponent/index';
+const SideBySideViews = () => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.view1}>
+        <RoundedButton
+          onPress={() => setFilterCriteria('all')}
+          backgroundColor={colors.Sky.Lightest}
+          title="All"
+          width="100%"
+          height="128px"
+          borderRadius="48px"
+        />
+        <RoundedButton
+          onPress={() => setFilterCriteria('Hatch Econômico')}
+          backgroundColor={colors.Sky.Lightest}
+          title="Hatch Econômico"
+          width="100%"
+          height="128px"
+          borderRadius="48px"
+        />
 
-// function CarFilter() {
-//   const [cars, setCars] = useState(data);
-//   const [filterBrand, setFilterBrand] = useState('');
-//   const [filterModel, setFilterModel] = useState('');
-//   const [selectedLanguage, setSelectedLanguage] = useState();
+        <RoundedButton
+          onPress={() => setFilterCriteria('Hatch Intermediário')}
+          backgroundColor={colors.Sky.Lightest}
+          title="Hatch Intermediário"
+          width="100%"
+          height="128px"
+          borderRadius="48px"
+        />
+      </View>
 
-//   const brands = [...new Set(cars.map(car => car.brand))];
-//   const models = [
-//     ...new Set(
-//       cars.filter(car => car.brand === filterBrand).map(car => car.model),
-//     ),
-//   ];
-//   const filteredCars = cars.filter(car => {
-//     if (filterBrand && car.brand !== filterBrand) {
-//       return false;
-//     }
-//     if (filterModel && car.model !== filterModel) {
-//       return false;
-//     }
-//     return true;
-//   });
+      <View style={styles.view2}>
+        <RoundedButton
+          onPress={() => setFilterCriteria('Sedan')}
+          backgroundColor={colors.Sky.Lightest}
+          title="Sedan"
+          width="100%"
+          height="128px"
+          borderRadius="48px"
+        />
 
-//   return (
-//     <View>
-//       <Picker
-//         selectedValue={filterBrand}
-//         onValueChange={value => setFilterBrand(value)}>
-//         <Picker.Item label="Select a brand" value="" />
-//         {brands.map(brand => (
-//           <Picker.Item key={brand} label={brand} value={brand} />
-//         ))}
-//       </Picker>
+        <RoundedButton
+          onPress={() => setFilterCriteria('SUV Compacto')}
+          backgroundColor={colors.Sky.Lightest}
+          title="SUV"
+          width="100%"
+          height="128px"
+          borderRadius="48px"
+          margin="16"
+        />
+      </View>
+    </View>
+  );
+};
 
-//       <Picker
-//         selectedValue={filterModel}
-//         onValueChange={value => setFilterModel(value)}>
-//         <Picker.Item label="Select a model" value="" />
-//         {models.map(model => (
-//           <Picker.Item key={model} label={model} value={model} />
-//         ))}
-//       </Picker>
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  view1: {
+    flex: 1,
+  },
+  view2: {
+    flex: 1,
+  },
+});
 
-//       <View>
-//         {filteredCars.map(car => (
-//           <Text key={car.id}>
-//             {car.brand} {car.model}
-//           </Text>
-//         ))}
-//       </View>
-//     </View>
-//   );
-// }
-
-// export default CarFilter;
+export default SideBySideViews;
