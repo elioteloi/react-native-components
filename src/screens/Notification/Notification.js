@@ -15,94 +15,97 @@ const App = () => {
 
   return (
     <Container>
-      <View>
-        <View style={styles.centeredView}>
-          <Modal
-            animationType="slide"
-            transparent={true}
-            visible={modalVisible}
-            onRequestClose={() => {
-              Alert.alert('Modal has been closed.');
-              setModalVisible(!modalVisible);
-            }}>
-            <View style={styles.centeredView}>
-              <View style={styles.modalView}>
-                <Text style={styles.modalText}>content button filter</Text>
-                <Container>
-                  <View>
-                    <RoundedButton
-                      onPress={() => setFilterCriteria('all')}
-                      backgroundColor={colors.Sky.Lightest}
-                      title="All"
-                      width="100%"
-                      height="128px"
-                      borderRadius="48px"
-                    />
-                    <RoundedButton
-                      onPress={() => setFilterCriteria('Hatch Econômico')}
-                      backgroundColor={colors.Sky.Lightest}
-                      title="Hatch Econômico"
-                      width="100%"
-                      height="128px"
-                      borderRadius="48px"
-                    />
+      <View
+        style={{position: 'absolute', top: 0, left: 0, right: 0, zIndex: 1}}>
+        <Container>
+          <RoundedButton
+            onPress={() => setModalVisible(!modalVisible)}
+            bgColor={colors.Sky.Light}
+            title="Open modal"
+            width="327px"
+            height="128px"
+            borderRadius="8px"
+          />
+        </Container>
+      </View>
 
-                    <RoundedButton
-                      onPress={() => setFilterCriteria('Hatch Intermediário')}
-                      backgroundColor={colors.Sky.Lightest}
-                      title="Hatch Intermediário"
-                      width="100%"
-                      height="128px"
-                      borderRadius="48px"
-                    />
-
-                    <RoundedButton
-                      onPress={() => setFilterCriteria('Sedan')}
-                      backgroundColor={colors.Sky.Lightest}
-                      title="Sedan"
-                      width="100%"
-                      height="128px"
-                      borderRadius="48px"
-                    />
-
-                    <RoundedButton
-                      onPress={() => setFilterCriteria('SUV Compacto')}
-                      backgroundColor={colors.Sky.Lightest}
-                      title="SUV"
-                      width="100%"
-                      height="128px"
-                      borderRadius="48px"
-                      margin="16"
-                    />
-                  </View>
-                </Container>
-                <RoundedButton
-                  onPress={() => setModalVisible(!modalVisible)}
-                  bgColor={colors.Sky.Light}
-                  title="Close modal"
-                  width="327px"
-                  height="128px"
-                  borderRadius="8px"
-                />
-              </View>
-            </View>
-          </Modal>
+      {filteredData.map(item => (
+        <View key={item.vehicleId}>
+          <Text>{item.vehicleModel}</Text>
         </View>
+      ))}
 
-        <RoundedButton
-          onPress={() => setModalVisible(!modalVisible)}
-          bgColor={colors.Sky.Light}
-          title="Open modal"
-          width="327px"
-          height="128px"
-          borderRadius="8px"
-        />
+      <View>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert('Modal has been closed.');
+            setModalVisible(!modalVisible);
+          }}>
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>content button filter</Text>
+              <Container>
+                <View>
+                  <RoundedButton
+                    onPress={() => setFilterCriteria('all')}
+                    backgroundColor={colors.Sky.Lightest}
+                    title="All"
+                    width="100%"
+                    height="128px"
+                    borderRadius="48px"
+                  />
+                  <RoundedButton
+                    onPress={() => setFilterCriteria('Hatch Econômico')}
+                    backgroundColor={colors.Sky.Lightest}
+                    title="Hatch Econômico"
+                    width="100%"
+                    height="128px"
+                    borderRadius="48px"
+                  />
 
-        {filteredData.map(item => (
-          <View key={item.vehicleId}>
-            <Text>{item.vehicleModel}</Text>
+                  <RoundedButton
+                    onPress={() => setFilterCriteria('Hatch Intermediário')}
+                    backgroundColor={colors.Sky.Lightest}
+                    title="Hatch Intermediário"
+                    width="100%"
+                    height="128px"
+                    borderRadius="48px"
+                  />
+
+                  <RoundedButton
+                    onPress={() => setFilterCriteria('Sedan')}
+                    backgroundColor={colors.Sky.Lightest}
+                    title="Sedan"
+                    width="100%"
+                    height="128px"
+                    borderRadius="48px"
+                  />
+
+                  <RoundedButton
+                    onPress={() => setFilterCriteria('SUV Compacto')}
+                    backgroundColor={colors.Sky.Lightest}
+                    title="SUV"
+                    width="100%"
+                    height="128px"
+                    borderRadius="48px"
+                    margin="16"
+                  />
+                </View>
+              </Container>
+              <RoundedButton
+                onPress={() => setModalVisible(!modalVisible)}
+                bgColor={colors.Sky.Light}
+                title="Close modal"
+                width="327px"
+                height="128px"
+                borderRadius="8px"
+              />
+            </View>
           </View>
-        ))}
+        </Modal>
       </View>
     </Container>
   );
